@@ -46,8 +46,19 @@ export default class App extends Component {
   };
 
   sendFiles = async () => {
-    console.log('Файлы передаются')
-  }
+    console.log("файлы", this.state.files);
+    let data = new FormData();
+    data.append("files", this.state.files);
+    const response = await fetch('http://localhost:8081/uploadFiles', {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        headers: {
+            // 'Content-Type': 'multipart/form-data'
+          },
+        body: data
+      }).then(response => response.json());
+}
 
   sendRequest = async () => {
     console.log('Данные формы передаются')
