@@ -45,24 +45,27 @@ export default class App extends Component {
     });
   };
 
+  convertFiles=(arrayOfFiles)=>{
+    const resultData = new FormData();
+    const resultArray=[];
+    arrayOfFiles.map(file=>{
+      resultData.append("files", file);
+    });
+    return resultData;
+  }
+
   sendFiles = async () => {
-    console.log("файлы", this.state.files);
-    let data = new FormData();
-    data.append("files", this.state.files);
     const response = await fetch('http://localhost:8081/uploadFiles', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
-        headers: {
-            // 'Content-Type': 'multipart/form-data'
-          },
-        body: data
+        body: this.convertFiles(this.state.files)
       }).then(response => response.json());
 }
 
   sendRequest = async () => {
     console.log('Данные формы передаются')
-    const response = await fetch('http://localhost:8080/update-xslx', {
+    const response = await fetch('http://localhost:8081/update-xslx', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
