@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns';
+import { Button } from 'rsuite';
 
 import FileForm from '../FileForm';
 import MainFormReport from '../MainFormReport';
@@ -47,7 +48,6 @@ export default class App extends Component {
 
   convertFiles=(arrayOfFiles)=>{
     const resultData = new FormData();
-    const resultArray=[];
     arrayOfFiles.map(file=>{
       resultData.append("files", file);
     });
@@ -80,6 +80,23 @@ export default class App extends Component {
         })
       }).then(response => response.json());
   }
+  sendCodeToServer = async(code) =>{
+    let data = new FormData();
+    data.append('code', code);
+    const response = await fetch('http://localhost:8081/code',{
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+      body: data
+    });
+  }
+  componentWillMount = () =>{
+    const params = new URLSearchParams(window.location.search);
+    let code = params.get('code');
+    if(code){
+      this.sendCodeToServer(code);
+    }
+  }
 
   render() {
     const { files, metrics, idCount, dateRange } = this.state;
@@ -89,6 +106,7 @@ export default class App extends Component {
         <div className="main-container">
           <section className='app'>
             <h1>Обновление отчета</h1>
+            <Button appearance="ghost" ><a href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'>Войти в профиль</a></Button>
             <FileForm files = {files} handleChangeFiles = {this.handleChangeFiles} sendFiles = {this.sendFiles} />
             {
               files &&
