@@ -1,0 +1,35 @@
+.file-item {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    background-color: #fff;
+    box-shadow: 0 0 8px 0 rgba(12,12,13,.1);
+    border-radius: .25rem;
+}
+
+.file-item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: .75rem;
+}
+
+.file-item-remove {
+    align-self: center;
+    height: 2rem;
+}
+
+.file-item-container-name {
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.file-item-name {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    word-break: break-all;
+    line-break: anywhere;
+}

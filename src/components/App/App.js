@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns';
 
+import AppHeader from '../AppHeader';
+import AppDescription from '../AppDescription'
 import FileForm from '../FileForm';
 import MainFormReport from '../MainFormReport';
 
@@ -10,11 +12,29 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      user: null,
       files: null,
       metrics: ['ym:s:visits', 'ym:s:users', 'ym:s:bounceRate', 'ym:s:pageDepth', 'ym:s:avgVisitDurationSeconds'],
       idCount: '546546456',
       dateRange: [subMonths(startOfMonth(new Date()), 1), subMonths(endOfMonth(new Date()), 1)]
     };
+  }
+
+  signIn = () => {
+    this.setState({
+      user: {
+        isAvatarEmpty: false,
+        avatarId: '32838/RJ7Atpfxb30zwwF5h2qqt4895MY-1',
+        login: 'vladyslav.stupin'
+      }
+    })
+  }
+
+  signUp = () => {
+    this.setState({
+      user: null,
+      files: null
+    })
   }
 
   handleChangeFiles = (newFiles) => {
@@ -25,6 +45,24 @@ export default class App extends Component {
       };
     });
   };
+
+  handleRemoveFile = (idx) => {
+    this.setState(({ files }) => {
+      // const idx = files.findIndex((file) => file.id === id);
+
+      const newFiles = [...files.slice(0, idx), ...files.slice(idx + 1)];
+
+      if(newFiles.length === 0) {
+        return {
+          files: null
+        };
+      }
+
+      return {
+        files: newFiles
+      };
+    });
+  }
 
   handleChange = (value, event) => {
     const name = event.target.name;
@@ -46,9 +84,9 @@ export default class App extends Component {
   };
 
   sendFiles = async () => {
-    console.log("файлы", this.state.files);
+    console.log('файлы', this.state.files);
     let data = new FormData();
-    data.append("files", this.state.files);
+    data.append('files', this.state.files);
     const response = await fetch('http://localhost:8081/uploadFiles', {
         method: 'POST',
         mode: 'cors',
@@ -79,29 +117,44 @@ export default class App extends Component {
   }
 
   render() {
-    const { files, metrics, idCount, dateRange } = this.state;
-
+    const { user, files, metrics, idCount, dateRange } = this.state;
+    console.log(files)
     return (
-      <div className="background-gradient">
-        <div className="main-container">
-          <section className='app'>
-            <h1>Обновление отчета</h1>
-            <FileForm files = {files} handleChangeFiles = {this.handleChangeFiles} sendFiles = {this.sendFiles} />
+      <React.Fragment>
+        <AppHeader user={user} signIn={this.signIn} signUp={this.signUp} />
+        <main className='main-wrapper'>
+          <div className='main-container'>
+            
+            {
+              user &&
+              <section className='column-container'>
+                <FileForm files = {files} handleChangeFiles = {this.handleChangeFiles} handleRemoveFile = {this.handleRemoveFile} sendFiles = {this.sendFiles} />
+              </section>
+            }
+
             {
               files &&
-              <MainFormReport
-                metrics = {metrics}
-                idCount = {idCount}
-                dateRange = {dateRange}
-                handleChange = {this.handleChange}
-                handleChangeMetrics = {this.handleChangeMetrics}
-                handleChangeDateRange = {this.handleChangeDateRange}
-                sendRequest = {this.sendRequest}
-              />
+              <section className='column-container'>
+                <MainFormReport
+                  metrics = {metrics}
+                  idCount = {idCount}
+                  dateRange = {dateRange}
+                  handleChange = {this.handleChange}
+                  handleChangeMetrics = {this.handleChangeMetrics}
+                  handleChangeDateRange = {this.handleChangeDateRange}
+                  sendRequest = {this.sendRequest}
+                />
+              </section>
             }
-          </section>
-        </div>
-      </div>
+
+            <section className='column-container'>
+              <AppDescription />
+            </section>
+
+          </div>
+        </main>
+        {/* <AppHeader /> */}
+      </React.Fragment>
     );
   }
 }

@@ -2,24 +2,23 @@ import React from 'react';
 
 import FileItem from '../FileItem';
 
-const FileList = ({ files }) => {
+import './fileList.css';
+
+const FileList = ({ files, handleRemoveFile }) => {
   let fileList = null;
   if (files) {
-    fileList = files.map((file, index) => <FileItem file={file} index = {index} /> );
+    fileList = files.map((file, index) => <FileItem file={file} index={index} handleRemoveFile={handleRemoveFile} /> );
   }
   
   return (
-    <div>
+    <aside>
     {
       files &&
-      <aside>
-        <h4>Переданные файлы:</h4>
-        <ul>
-          {fileList}
-        </ul>
-      </aside>
+      <ul className='fileList'>
+        {fileList}
+      </ul>
     }
-    </div>
+    </aside>
   )
 }
 export default FileList;

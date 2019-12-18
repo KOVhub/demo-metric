@@ -25,7 +25,7 @@ export default class MetricsTagPicker extends Component {
         defaultValue = {metrics}
         data = {metricsList}
         onChange = {handleChangeMetrics}
-        style = {{ width: 300 }}
+        // style = {}
         menuStyle = {{ width: 300 }}
         groupBy = 'groupName'
         placeholder = 'Выберите необходимые метрики'

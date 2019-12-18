@@ -1,8 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+/* Потом удалить. Для теста верстки */
+/* * {
+  border: 1px solid red !important;
+} */
+/* Потом удалить. Для теста верстки */
 
+
+/* Reset default browser styles for forms */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -10,66 +13,58 @@ input:-webkit-autofill:active,
 input:-internal-autofill-selected {
   -webkit-box-shadow: 0 0 0 30px #fff inset !important;
 }
+/* Reset default browser styles for forms */
 
-.background-gradient {
+
+/* Styles for background container and all tags (fonts) */
+*:focus {
+  outline: 1px dashed #2196F3 !important;
+}
+
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  box-sizing: border-box;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #333;
+  font-weight: 400;
+}
+/* Styles for background container and all tags (fonts) */
+
+
+/* Styles for central container */
+.main-wrapper {
+  margin: auto 0;
+  box-sizing: inherit;
 }
 
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-width: 600px;
-  min-height: 80vh;
-  margin: 24px;
-  padding: 32px;
+  align-items: flex-start;
+  width: 80vw;
+  max-width: 1100px;
+  box-sizing: inherit;
+  margin: 30px 0;
+  padding: 40px 20px 0 20px;
   background: #fff;
   box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
+/* Styles for central container */
 
 
-
-.app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+/* Styles for columns of central container */
+.column-container {
+  width: 50%;
+  box-sizing: inherit;
+  padding: 0 20px 40px 20px;
 }
-
-.date-group label {
-  margin-right: 25px;
-}
-
-.date-group .first-input {
-  margin-right: 10px;
-}
-
-.dropzone {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-width: 2px;
-  border-radius: 2px;
-  border-color: #eeeeee;
-  border-style: dashed;
-  background-color: #fafafa;
-  color: #bdbdbd;
-  outline: none;
-  transition: border .24s ease-in-out;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  width: 100%;
-}
+/* Styles for columns of central container */

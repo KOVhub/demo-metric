@@ -14,7 +14,6 @@ const MainFormReport = ( { metrics, idCount, dateRange, handleChange,
     <FormGroup>
       <ControlLabel htmlFor='metrics'>Метрики</ControlLabel>
       <MetricsTagPicker metrics = {metrics} handleChangeMetrics = {handleChangeMetrics} />
-      <HelpBlock>Обязательно для заполнения</HelpBlock>
     </FormGroup>
     <FormGroup>
       <ControlLabel htmlFor='idCount'>Id-счетчика</ControlLabel>
@@ -30,15 +29,13 @@ const MainFormReport = ( { metrics, idCount, dateRange, handleChange,
           onChange={handleChange}
         />
       </InputGroup>
-      <HelpBlock>Обязательно для заполнения</HelpBlock>
     </FormGroup>
     <FormGroup>
       <ControlLabel htmlFor='dates'>Период отчета</ControlLabel>
       <DateRangePicker dateRange = {dateRange} handleChangeDateRange = {handleChangeDateRange} />
-      <HelpBlock>Обязательно для заполнения</HelpBlock>
     </FormGroup>
     <FormGroup>
-        <Button block color="green" onClick={sendRequest}>Сформировать</Button>
+        <Button block color='green' onClick={sendRequest}>Сформировать</Button>
     </FormGroup>
     </Form>
   )
