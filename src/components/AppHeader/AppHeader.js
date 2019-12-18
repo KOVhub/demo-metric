@@ -1,5 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import { Button } from 'rsuite';
 
 import './appHeader.css';
 import metricatIcon from './metricatIcon.svg';
@@ -26,6 +27,7 @@ const AppHeader = ({ user, signIn, signUp }) => {
   } else {
     content = (
       <div className='header-user'>
+        <Button appearance="ghost" ><a href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'>Войти в профиль</a></Button>
         <button onClick={signIn} className='button-signin-signup' type='button' title='Войти в профиль'>Войти</button>
       </div>
     )

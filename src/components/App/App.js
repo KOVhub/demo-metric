@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns';
-import { Button } from 'rsuite';
 
 import AppHeader from '../AppHeader';
 import AppDescription from '../AppDescription'
@@ -99,7 +98,7 @@ export default class App extends Component {
         credentials: 'include',
         body: this.convertFiles(this.state.files)
       }).then(response => response.json());
-}
+  }
 
   sendRequest = async () => {
     console.log('Данные формы передаются')
@@ -144,7 +143,6 @@ export default class App extends Component {
         <AppHeader user={user} signIn={this.signIn} signUp={this.signUp} />
         <main className='main-wrapper'>
           <div className='main-container'>
-          <Button appearance="ghost" ><a href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'>Войти в профиль</a></Button>
             {
               user &&
               <section className='column-container'>
