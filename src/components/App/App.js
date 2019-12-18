@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns';
+import { Button } from 'rsuite';
 
 import AppHeader from '../AppHeader';
 import AppDescription from '../AppDescription'
@@ -83,24 +84,26 @@ export default class App extends Component {
     });
   };
 
+  convertFiles=(arrayOfFiles)=>{
+    const resultData = new FormData();
+    arrayOfFiles.map(file=>{
+      resultData.append("files", file);
+    });
+    return resultData;
+  }
+
   sendFiles = async () => {
-    console.log('файлы', this.state.files);
-    let data = new FormData();
-    data.append('files', this.state.files);
     const response = await fetch('http://localhost:8081/uploadFiles', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
-        headers: {
-            // 'Content-Type': 'multipart/form-data'
-          },
-        body: data
+        body: this.convertFiles(this.state.files)
       }).then(response => response.json());
 }
 
   sendRequest = async () => {
     console.log('Данные формы передаются')
-    const response = await fetch('http://localhost:8080/update-xslx', {
+    const response = await fetch('http://localhost:8081/update-xslx', {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -115,6 +118,23 @@ export default class App extends Component {
         })
       }).then(response => response.json());
   }
+  sendCodeToServer = async(code) =>{
+    let data = new FormData();
+    data.append('code', code);
+    const response = await fetch('http://localhost:8081/code',{
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'include',
+      body: data
+    });
+  }
+  componentWillMount = () =>{
+    const params = new URLSearchParams(window.location.search);
+    let code = params.get('code');
+    if(code){
+      this.sendCodeToServer(code);
+    }
+  }
 
   render() {
     const { user, files, metrics, idCount, dateRange } = this.state;
@@ -124,7 +144,7 @@ export default class App extends Component {
         <AppHeader user={user} signIn={this.signIn} signUp={this.signUp} />
         <main className='main-wrapper'>
           <div className='main-container'>
-            
+          <Button appearance="ghost" ><a href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'>Войти в профиль</a></Button>
             {
               user &&
               <section className='column-container'>
