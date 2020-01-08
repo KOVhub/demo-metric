@@ -100,5 +100,6 @@
   background-color: #3583fb;
   transition: background-color 0.8s linear;
   color: white;
+  text-decoration: none;
 }
 /* styles in header with buttons for signin and signup and user block */

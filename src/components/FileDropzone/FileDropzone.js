@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
+
+import { handleChangeFiles } from '../../actions';
 
 import './fileDropzone.css';
 import fileAddIcon from './fileAddIcon.svg';
 
-const FileDropzone = ({ handleChangeFiles, files }) => {
+const FileDropzone = ({ filesSended, loading, hasError, error, handleChangeFiles }) => {
   let fileDropzoneClassNames = 'file-dropzone';
-  fileDropzoneClassNames += files ? ' file-dropzone-padding' : '';
+  fileDropzoneClassNames += filesSended ? ' file-dropzone-padding' : '';
 
   return (
     <Dropzone onDrop = {handleChangeFiles}>
@@ -22,4 +25,16 @@ const FileDropzone = ({ handleChangeFiles, files }) => {
     </Dropzone>
   );
 }
-export default FileDropzone; 
+
+const mapStateToProps = ({ filesSended: {filesSended, loading, hasError, error} }) => {
+  return {filesSended, loading, hasError, error};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChangeFiles: (newFiles) => dispatch(handleChangeFiles(newFiles))
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FileDropzone);

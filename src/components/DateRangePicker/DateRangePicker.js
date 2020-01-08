@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { DateRangePicker as DatePicker } from 'rsuite';
 
+import { handleChangeDateRange } from '../../actions';
 import { _localeConfig, _rangesConfig } from './helpers';
 
 const DateRangePicker = ({ dateRange, handleChangeDateRange }) => {
+
   return (
     <DatePicker
       block
@@ -18,5 +21,17 @@ const DateRangePicker = ({ dateRange, handleChangeDateRange }) => {
       ranges = {_rangesConfig}
     />
   );
+  
 }
-export default DateRangePicker;
+
+const mapStateToprops = ({ metricsOptions: { dateRange } }) => {
+  return { dateRange };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChangeDateRange: (newDateRange) => dispatch(handleChangeDateRange(newDateRange))
+  };
+}
+
+export default connect(mapStateToprops, mapDispatchToProps)(DateRangePicker);

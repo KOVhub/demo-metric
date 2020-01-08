@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TagPicker } from 'rsuite';
 
+import { handleChangeMetrics } from '../../actions';
 import { metricsList } from './helpers';
 
-export default class MetricsTagPicker extends Component {
+class MetricsTagPicker extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,6 +15,7 @@ export default class MetricsTagPicker extends Component {
 
   metricsList = new metricsList();
   
+
   render() {
     const { metricsList } = this.state;
     const { metrics, handleChangeMetrics } = this.props;
@@ -33,3 +36,15 @@ export default class MetricsTagPicker extends Component {
     );
   }
 }
+
+const mapStateToProps = ({metricsOptions: {metrics}}) => {
+  return {metrics}
+}
+
+const mapStateToispatch = (dispatch) => {
+  return {
+    handleChangeMetrics: (newMetrics) => dispatch(handleChangeMetrics(newMetrics))
+  }
+}
+
+export default connect(mapStateToProps, mapStateToispatch)(MetricsTagPicker)

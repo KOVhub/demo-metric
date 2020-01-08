@@ -1,9 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { compose } from '../../helpers';
+import { withFileService } from '../HOC';
+import { handleRemoveFile } from '../../actions';
 
 import './fileItem.css';
 import fileRemoveIcon from './fileRemoveIcon.svg';
 
 const FileItem = ({ file, index, handleRemoveFile }) => {
+  
   return (
     <li key = {index} className='file-item'>
       <div className="file-item-container">
@@ -15,10 +21,22 @@ const FileItem = ({ file, index, handleRemoveFile }) => {
         onClick={ () => handleRemoveFile(index) }
       />
         <p className="file-item-container-name">
-          <h1 className="file-item-name">{file.name}</h1>
+          <span className="file-item-name">{file.name}</span>
         </p>
       </div>
     </li>
   )
 }
-export default FileItem;
+
+const mapStateToProps = (state) => {
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleRemoveFile: (index) => dispatch(handleRemoveFile(index))
+  };
+};
+
+export default compose(
+  withFileService(),
+  connect(mapStateToProps, mapDispatchToProps))(FileItem);

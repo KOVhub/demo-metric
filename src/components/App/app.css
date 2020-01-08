@@ -17,9 +17,9 @@ input:-internal-autofill-selected {
 
 
 /* Styles for background container and all tags (fonts) */
-*:focus {
+/* *:focus {
   outline: 1px dashed #2196F3 !important;
-}
+} */
 
 body {
   display: flex;

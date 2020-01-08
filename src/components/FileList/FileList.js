@@ -1,13 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import FileItem from '../FileItem';
 
 import './fileList.css';
 
-const FileList = ({ files, handleRemoveFile }) => {
-  let fileList = null;
+const FileList = ({ files }) => {
+  let fileList;
   if (files) {
-    fileList = files.map((file, index) => <FileItem file={file} index={index} handleRemoveFile={handleRemoveFile} /> );
+    fileList = files.map((file, index) => {
+    return (
+      <FileItem
+        key = {index}
+        file = {file}
+        index = {index}
+      />
+    )
+    });
   }
   
   return (
@@ -21,4 +30,9 @@ const FileList = ({ files, handleRemoveFile }) => {
     </aside>
   )
 }
-export default FileList;
+
+const mapStateToProps = ({ filesSended: { filesSended } }) => {
+  return { files: filesSended };
+};
+
+export default connect(mapStateToProps)(FileList);
