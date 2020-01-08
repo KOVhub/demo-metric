@@ -60,7 +60,8 @@ class AppHeader extends Component {
       content = (
         <div className='header-user'>
           <a
-            href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe&force_confirm=true'
+            // href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe&force_confirm=true'
+            href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'
             className='button-signin-signup'
             title='Войти в профиль'>
             Войти

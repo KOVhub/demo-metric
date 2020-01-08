@@ -4,7 +4,8 @@ const metricsOptionsReducer = (state, action) => {
   if (state === undefined) {
     return {
       countersList: [],
-      counters: ['56934637'],
+      counters: null, //['56934637']
+      idTestCount: '29761725',
       metrics: ['ym:s:visits', 'ym:s:users', 'ym:s:bounceRate', 'ym:s:pageDepth', 'ym:s:avgVisitDurationSeconds'],
       dateRange: [subMonths(startOfMonth(new Date()), 1), subMonths(endOfMonth(new Date()), 1)]
     };
@@ -15,6 +16,7 @@ const metricsOptionsReducer = (state, action) => {
       return {
         countersList: state.metricsOptions.countersList,
         counters: action.payload.newCounters,
+        idTestCount: '29761725',
         metrics: state.metricsOptions.metrics,
         dateRange: state.metricsOptions.dateRange,
       };
@@ -22,6 +24,7 @@ const metricsOptionsReducer = (state, action) => {
       return {
         countersList: action.payload.counters,
         counters: state.metricsOptions.counters,
+        idTestCount: '29761725',
         metrics: state.metricsOptions.metrics,
         dateRange: state.metricsOptions.dateRange,
       };
@@ -29,6 +32,7 @@ const metricsOptionsReducer = (state, action) => {
       return {
         countersList: state.metricsOptions.countersList,
         counters: state.metricsOptions.counters,
+        idTestCount: '29761725',
         metrics: action.payload.newMetrics,
         dateRange: state.metricsOptions.dateRange,
       };
@@ -36,6 +40,7 @@ const metricsOptionsReducer = (state, action) => {
       return {
         countersList: state.metricsOptions.countersList,
         counters: state.metricsOptions.counters,
+        idTestCount: '29761725',
         metrics: state.metricsOptions.metrics,
         dateRange: action.payload.newDateRange
       };

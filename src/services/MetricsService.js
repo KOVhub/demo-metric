@@ -34,7 +34,7 @@ export default class MetricsService {
           },
         body: JSON.stringify({
             metrics: metricsOptions.metrics,
-            idCount: metricsOptions.counters[0],
+            idCount: metricsOptions.idTestCount,
             dateStart: format (metricsOptions.dateRange[0], 'yyyy-MM-dd'),
             dateEnd: format (metricsOptions.dateRange[1], 'yyyy-MM-dd')
         })
@@ -42,6 +42,15 @@ export default class MetricsService {
 
       return await response.json();
   }
+
+  downloadReports = async() => {
+    const response = await fetch('http://localhost:8081/download', {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include'
+    });
+      return response;
+    };
 
   _mapCounter = (counter) => {
     return {

@@ -12,13 +12,27 @@ import { withMetricsService } from '../HOC';
 
 import 'rsuite/dist/styles/rsuite-default.css';
 
-const MetricsOptionsForm = ( { metricsOptions, sendRequest, metricsService } ) => {
+const MetricsOptionsForm = ( { metricsOptions, metricsService } ) => {
 
-  sendRequest = async () => {
+  const sendRequest = async () => {
     metricsService.sendMetricsOptions(metricsOptions)
-    .then(response => response.json());
-}
+    .then(response => console.log(response));
+  }
 
+  const downloadReports = async () => {
+    metricsService.downloadReports()
+      .then(response => {
+        const filename = 'report.xlsx'
+        response.blob()
+          .then(blob => {
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+          });
+      })
+  }
 
   return (
     <Form fluid>
@@ -41,6 +55,10 @@ const MetricsOptionsForm = ( { metricsOptions, sendRequest, metricsService } ) =
 
       <FormGroup>
         <Button block color='green' onClick={sendRequest}>Сформировать</Button>
+      </FormGroup>
+
+      <FormGroup>
+        <Button block color='green' onClick={downloadReports}>Скачать файлы</Button>
       </FormGroup>
     </Form>
   )
