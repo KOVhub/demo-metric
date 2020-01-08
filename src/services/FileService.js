@@ -1,6 +1,8 @@
+import { baseUrlApi } from './configurationServer';
+
 export default class FileService {
 
-  _apiBase = 'http://localhost:8081';
+  _baseUrlApi = baseUrlApi;
 
   convertFiles = (arrayOfFiles) => {
     const resultData = new FormData();
@@ -12,7 +14,7 @@ export default class FileService {
   }
 
   sendFiles = async (arrayOfFiles) => {
-    const response = await fetch(`${this._apiBase}/uploadFiles`,{
+    const response = await fetch(`${this._baseUrlApi}/uploadFiles`,{
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -21,5 +23,4 @@ export default class FileService {
 
     return await response.json();
   }
-
 }

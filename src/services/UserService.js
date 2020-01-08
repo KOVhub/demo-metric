@@ -1,12 +1,14 @@
+import { baseUrlApi } from './configurationServer';
+
 export default class UserService {
 
-  _apiBase = 'http://localhost:8081';
+  _baseUrlApi = baseUrlApi;
 
   sendCodeToServer = async(code) => {
     let data = new FormData();
     data.append('code', code);
     
-    const response = await fetch(`${this._apiBase}/code`,{
+    const response = await fetch(`${this._baseUrlApi}/code`,{
       method: 'POST',
       mode: 'cors',
       credentials: 'include',

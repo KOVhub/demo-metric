@@ -1,11 +1,12 @@
 import { format } from 'date-fns';
+import { baseUrlApi } from './configurationServer';
 
 export default class MetricsService {
 
-  _apiBase = 'http://localhost:8081';
+  _baseUrlApi = baseUrlApi;
 
   getResource = async (url) => {
-    const response = await fetch(`${this._apiBase}${url}`, {
+    const response = await fetch(`${this._baseUrlApi}${url}`, {
       method: 'GET',
       mode: 'cors',
       credentials: 'include'
@@ -25,7 +26,7 @@ export default class MetricsService {
   
 
   sendMetricsOptions = async (metricsOptions) => {
-    const response = await fetch(`${this._apiBase}/update-xslx`, {
+    const response = await fetch(`${this._baseUrlApi}/update-xslx`, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -44,7 +45,7 @@ export default class MetricsService {
   }
 
   downloadReports = async() => {
-    const response = await fetch('http://localhost:8081/download', {
+    const response = await fetch(`${this._baseUrlApi}/download`, {
         method: 'GET',
         mode: 'cors',
         credentials: 'include'
