@@ -22,7 +22,8 @@ const MetricsOptionsForm = ( { metricsOptions, metricsService } ) => {
   const downloadReports = async () => {
     metricsService.downloadReports()
       .then(response => {
-        const filename = 'report.xlsx'
+        // const filename = 'report.xlsx';
+        const filename =  response.headers.get('Content-Disposition').split('filename=')[1];
         response.blob()
           .then(blob => {
             let url = window.URL.createObjectURL(blob);
