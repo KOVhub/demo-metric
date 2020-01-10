@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "733708e4c54895f5cb55685c5dea3ba9",
+    "revision": "ed6809146fc14878cc304729b634322d",
     "url": "/demo-metric/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/demo-metric/static/css/2.a60948dc.chunk.css"
   },
   {
-    "revision": "4374d88678a2dc316b00",
+    "revision": "24eec7732cad578d697b",
     "url": "/demo-metric/static/css/main.551938d2.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/demo-metric/static/js/2.6e109530.chunk.js.LICENSE"
   },
   {
-    "revision": "4374d88678a2dc316b00",
-    "url": "/demo-metric/static/js/main.8fe36b00.chunk.js"
+    "revision": "24eec7732cad578d697b",
+    "url": "/demo-metric/static/js/main.caa4078c.chunk.js"
   },
   {
     "revision": "22e42019b97a357d6f62",

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/demo-metric/static/css/main.551938d2.chunk.css",
-    "main.js": "/demo-metric/static/js/main.8fe36b00.chunk.js",
-    "main.js.map": "/demo-metric/static/js/main.8fe36b00.chunk.js.map",
+    "main.js": "/demo-metric/static/js/main.caa4078c.chunk.js",
+    "main.js.map": "/demo-metric/static/js/main.caa4078c.chunk.js.map",
     "runtime-main.js": "/demo-metric/static/js/runtime-main.7f02804d.js",
     "runtime-main.js.map": "/demo-metric/static/js/runtime-main.7f02804d.js.map",
     "static/css/2.a60948dc.chunk.css": "/demo-metric/static/css/2.a60948dc.chunk.css",
     "static/js/2.6e109530.chunk.js": "/demo-metric/static/js/2.6e109530.chunk.js",
     "static/js/2.6e109530.chunk.js.map": "/demo-metric/static/js/2.6e109530.chunk.js.map",
     "index.html": "/demo-metric/index.html",
-    "precache-manifest.f637d7cc10368de74ca944ce547eb520.js": "/demo-metric/precache-manifest.f637d7cc10368de74ca944ce547eb520.js",
+    "precache-manifest.34ed6b1b257991d5a45047f1cad581cc.js": "/demo-metric/precache-manifest.34ed6b1b257991d5a45047f1cad581cc.js",
     "service-worker.js": "/demo-metric/service-worker.js",
     "static/css/2.a60948dc.chunk.css.map": "/demo-metric/static/css/2.a60948dc.chunk.css.map",
     "static/css/main.551938d2.chunk.css.map": "/demo-metric/static/css/main.551938d2.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.a60948dc.chunk.css",
     "static/js/2.6e109530.chunk.js",
     "static/css/main.551938d2.chunk.css",
-    "static/js/main.8fe36b00.chunk.js"
+    "static/js/main.caa4078c.chunk.js"
   ]
 }
