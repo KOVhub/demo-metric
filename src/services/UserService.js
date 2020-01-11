@@ -15,11 +15,15 @@ export default class UserService {
       body: data
     });
 
+    // if (!response.ok) {
+    //   return {
+    //     errorCode: response.status,
+    //     errorMessage: 'Внутренняя ошибка сервера'
+    //   }
+    // }
+
     if (!response.ok) {
-      return {
-        errorCode: response.status,
-        errorMessage: 'Внутренняя ошибка сервера'
-      }
+      throw new Error(`Could not fetch ${this._baseUrlApi}/code, received ${response.status}`);
     }
 
     const user = await response.json();

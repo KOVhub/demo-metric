@@ -54,6 +54,18 @@ class AppHeader extends Component {
           //   draggable: true,
           // });
         }
+      })
+      .catch((error) => {
+        toast.update(this.toastId, {
+          type: toast.TYPE.ERROR,
+          render: error.message,
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        })
       });
 
     }
