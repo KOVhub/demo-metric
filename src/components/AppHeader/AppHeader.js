@@ -15,6 +15,8 @@ import defaultUserAvatar from './defaultUserAvatar.svg';
 
 class AppHeader extends Component {
 
+  toastId = null;
+
   componentDidMount = () => {
     const { userService } = this.props;
 
@@ -23,19 +25,34 @@ class AppHeader extends Component {
     const errorCode = params.get('error');
 
     if(code) {
+      this.toastId = toast.warn("Происходит вход в Ваш аккаунт", { 
+        autoClose: false
+      });
+
       const { userSignIn } = this.props;
       userService.sendCodeToServer(code)
       .then((user) => {
         if(user.login) {
           userSignIn(user)
-          toast.success("Вы успешно вошли в профиль", {
+          toast.update(this.toastId, {
+            type: toast.TYPE.SUCCESS,
+            render: "Вы успешно вошли в профиль",
             position: "top-right",
             autoClose: 4000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-          });
+          })
+
+          // toast.success("Вы успешно вошли в профиль", {
+          //   position: "top-right",
+          //   autoClose: 4000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          // });
         }
       });
 
