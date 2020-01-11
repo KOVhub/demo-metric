@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 import { withUserService } from '../HOC';
 import { compose } from '../../helpers';
 import { userSignIn, userSignUp } from '../../actions';
+import { clientIdYandexOauth, callbackUrlYandexOauth, accountSelectionYandexOauth } from '../../configurationApp';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './appHeader.css';
 import metricatIcon from './metricatIcon.svg';
 import defaultUserAvatar from './defaultUserAvatar.svg';
@@ -25,6 +28,14 @@ class AppHeader extends Component {
       .then((user) => {
         if(user.login) {
           userSignIn(user)
+          toast.success("Вы успешно вошли в профиль", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
         }
       });
 
@@ -32,7 +43,14 @@ class AppHeader extends Component {
 
     if(errorCode) {
       let errorMessage = userService.handleErrorsReceivingCode(errorCode);
-      console.log(errorMessage);
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 10000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   }
 
@@ -60,8 +78,7 @@ class AppHeader extends Component {
       content = (
         <div className='header-user'>
           <a
-            // href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe&force_confirm=true'
-            href='https://oauth.yandex.ru/authorize?response_type=code&client_id=b5f89edcd2d044a194abaf7d8c320afe'
+            href={`https://oauth.yandex.ru/authorize?response_type=code&client_id=${clientIdYandexOauth}&redirect_uri=${callbackUrlYandexOauth}&force_confirm=${accountSelectionYandexOauth}`}
             className='button-signin-signup'
             title='Войти в профиль'>
             Войти

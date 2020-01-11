@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, FormGroup } from 'rsuite';
+import { Button } from 'rsuite';
+import { toast } from "react-toastify";
 
 import FileList from '../FileList';
 import FileDropzone from '../FileDropzone';
@@ -13,8 +14,14 @@ const FileForm = ({ files, fileService }) => {
   const sendFiles = async (files) => {
     fileService.sendFiles(files)
     .then((response) => {
-      const object = response;
-      console.log(object)
+      toast.success(response.message, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     });
   }
 

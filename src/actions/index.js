@@ -4,7 +4,8 @@ import {
   handleChangeCounters,
   countersGetFromServer,
   handleChangeMetrics,
-  handleChangeDateRange } from './metricsOptionsActions';
+  handleChangeDateStart,
+  handleChangeDateEnd } from './metricsOptionsActions';
 
 export {
   userSignIn,
@@ -14,5 +15,6 @@ export {
   handleChangeCounters,
   countersGetFromServer,
   handleChangeMetrics,
-  handleChangeDateRange
+  handleChangeDateStart,
+  handleChangeDateEnd
 };

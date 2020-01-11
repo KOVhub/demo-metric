@@ -1,36 +1,81 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { DateRangePicker as DatePicker } from 'rsuite';
+import { DatePicker } from 'rsuite';
 
-import { handleChangeDateRange } from '../../actions';
-import { _localeConfig, _rangesConfig } from './helpers';
+import { handleChangeDateStart, handleChangeDateEnd } from '../../actions';
+import { _localeConfig } from './helpers';
 
-const DateRangePicker = ({ dateRange, handleChangeDateRange }) => {
+const DateRangePicker = ({ dateStart, dateEnd, handleChangeDateStart, handleChangeDateEnd }) => {
+  
+  const dateStartRef = React.createRef();
+  const dateEndRef = React.createRef();
+  
+  const handleChangeDateStartAndOpenDateEnd = (newDateStart) => {
+    handleChangeDateStart(newDateStart);
+    openDateEnd(newDateStart);
+  }
+
+  const handleChangeDateEndAndOpenDateStart = (newDateEnd) => {
+    handleChangeDateEnd(newDateEnd);
+    openDateStart(newDateEnd);
+  }
+
+  const openDateStart = (newDateEnd = dateEnd) => {
+    if(newDateEnd && !dateStart) {
+      dateStartRef.current.open();
+    }
+  }
+
+  const openDateEnd = (newDateStart = dateStart) => {
+    if(newDateStart && !dateEnd) {
+      dateEndRef.current.open();
+    }
+  }
 
   return (
-    <DatePicker
-      block
-      name = 'dates'
-      id = 'dates'
-      placeholder = 'Выберите даты начала и конца отчета'
-      value = {dateRange}
-      onChange = {handleChangeDateRange}
-      isoWeek
-      locale = {_localeConfig}
-      showWeekNumbers
-      ranges = {_rangesConfig}
-    />
-  );
-  
+    <React.Fragment>
+      <DatePicker
+        value={dateStart}
+        onChange={handleChangeDateStartAndOpenDateEnd}
+        onClose={openDateEnd}
+        ref={dateStartRef}
+        oneTap
+        format='DD-MM-YYYY'
+        isoWeek
+        showWeekNumbers
+        locale = {_localeConfig}
+        ranges={[]}
+        placeholder="Начало"
+        style={{ width: 150, marginRight:5  }}
+        name = 'dates'
+        id = 'dates'
+      />
+      <DatePicker
+        value={dateEnd}
+        onChange={handleChangeDateEndAndOpenDateStart}
+        onClose={openDateStart}
+        ref={dateEndRef}
+        oneTap
+        format='DD-MM-YYYY'
+        isoWeek
+        showWeekNumbers
+        locale = {_localeConfig}
+        ranges={[]}
+        placeholder="Окончание"
+        style={{ width: 150 }}
+      />
+    </React.Fragment>
+  )
 }
 
-const mapStateToprops = ({ metricsOptions: { dateRange } }) => {
-  return { dateRange };
+const mapStateToprops = ({ metricsOptions: { dateStart, dateEnd } }) => {
+  return { dateStart, dateEnd };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleChangeDateRange: (newDateRange) => dispatch(handleChangeDateRange(newDateRange))
+    handleChangeDateStart: (newDateStart) => dispatch(handleChangeDateStart(newDateStart)),
+    handleChangeDateEnd: (newDateEnd) => dispatch(handleChangeDateEnd(newDateEnd))
   };
 }
 

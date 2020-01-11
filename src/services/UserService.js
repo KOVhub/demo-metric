@@ -1,4 +1,4 @@
-import { baseUrlApi } from './configurationServer';
+import { baseUrlApi } from '../configurationApp';
 
 export default class UserService {
 

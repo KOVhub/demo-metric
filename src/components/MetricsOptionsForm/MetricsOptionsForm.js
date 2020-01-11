@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, FormGroup, ControlLabel, Button } from 'rsuite';
+import { Form, FormGroup, ControlLabel, Button, SelectPicker } from 'rsuite';
+import * as dateFns from 'date-fns';
+import { toast } from "react-toastify";
 
 import CounterList from '../CounterList';
 import CountersCheckPicker from '../CountersCheckPicker';
@@ -16,7 +18,17 @@ const MetricsOptionsForm = ( { metricsOptions, metricsService } ) => {
 
   const sendRequest = async () => {
     metricsService.sendMetricsOptions(metricsOptions)
-    .then(response => console.log(response));
+    .then(response => {
+      console.log(response)
+      toast.success(response.message, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    });
   }
 
   const downloadReports = async () => {
@@ -31,9 +43,48 @@ const MetricsOptionsForm = ( { metricsOptions, metricsService } ) => {
             a.href = url;
             a.download = filename;
             a.click();
+            toast.success('Файлы скачиваются', {
+              position: "top-right",
+              autoClose: 4000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
           });
       })
   }
+
+  const data = [
+    {
+      label: 'Прошлый месяц',
+      value: [
+        dateFns.subMonths(dateFns.startOfMonth(new Date()), 1),
+        dateFns.subMonths(dateFns.endOfMonth(new Date()), 1)
+      ]
+    },
+    {
+      label: 'Текущий месяц',
+      value: [dateFns.startOfMonth(new Date()), new Date()]
+    },
+    {
+      label: 'Прошлая неделя',
+      value: [
+        dateFns.subWeeks(
+          dateFns.startOfWeek(new Date(), { weekStartsOn: 1 }),
+          1
+        ),
+        dateFns.subDays(
+          dateFns.startOfWeek(new Date(), { weekStartsOn: 1 }),
+          1
+        )
+      ]
+    },
+    {
+      label: 'Последние 7 дней',
+      value: [dateFns.subDays(new Date(), 6), new Date()]
+    }
+  ];
 
   return (
     <Form fluid>
@@ -52,6 +103,8 @@ const MetricsOptionsForm = ( { metricsOptions, metricsService } ) => {
       <FormGroup>
         <ControlLabel htmlFor='dates'>Период отчета</ControlLabel>
         <DateRangePicker />
+        <span style={{ marginLeft:5, marginRight:5  }}>или</span>
+        <SelectPicker data={data} style={{ width: 143 }} placeholder="Набор дат"/>
       </FormGroup>
 
       <FormGroup>

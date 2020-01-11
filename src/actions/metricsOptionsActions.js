@@ -25,19 +25,28 @@ const handleChangeMetrics = (newMetrics) => {
   };
 };
 
-const handleChangeDateRange = (newDateRange) => {
+const handleChangeDateStart = (newDateStart) => {
   return {
-    type: 'DATE_RANGE_CHANGE',
+    type: 'DATE_START_CHANGE',
     payload: {
-      newDateRange
+      newDateStart
     }
   };
 };
 
+const handleChangeDateEnd = (newDateEnd) => {
+  return {
+    type: 'DATE_END_CHANGE',
+    payload: {
+      newDateEnd
+    }
+  };
+};
 
 export {
   handleChangeCounters,
   countersGetFromServer,
   handleChangeMetrics,
-  handleChangeDateRange
+  handleChangeDateStart,
+  handleChangeDateEnd
 }

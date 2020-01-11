@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { baseUrlApi } from './configurationServer';
+import { baseUrlApi } from '../configurationApp';
 
 export default class MetricsService {
 
@@ -36,8 +36,8 @@ export default class MetricsService {
         body: JSON.stringify({
             metrics: metricsOptions.metrics,
             idCount: metricsOptions.idTestCount,
-            dateStart: format (metricsOptions.dateRange[0], 'yyyy-MM-dd'),
-            dateEnd: format (metricsOptions.dateRange[1], 'yyyy-MM-dd')
+            dateStart: format (metricsOptions.dateStart, 'yyyy-MM-dd'),
+            dateEnd: format (metricsOptions.dateEnd, 'yyyy-MM-dd')
         })
       })
 
