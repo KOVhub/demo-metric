@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/demo-metric/static/css/main.c10ca51f.chunk.css",
+    "main.css": "/demo-metric/static/css/main.533dfddf.chunk.css",
     "main.js": "/demo-metric/static/js/main.748001f7.chunk.js",
     "main.js.map": "/demo-metric/static/js/main.748001f7.chunk.js.map",
     "runtime-main.js": "/demo-metric/static/js/runtime-main.7f02804d.js",
@@ -9,10 +9,10 @@
     "static/js/2.962b279d.chunk.js": "/demo-metric/static/js/2.962b279d.chunk.js",
     "static/js/2.962b279d.chunk.js.map": "/demo-metric/static/js/2.962b279d.chunk.js.map",
     "index.html": "/demo-metric/index.html",
-    "precache-manifest.68a5b7ef591787b839717e6ab5aca5c7.js": "/demo-metric/precache-manifest.68a5b7ef591787b839717e6ab5aca5c7.js",
+    "precache-manifest.394433c157adc3402bc03fa418e60e28.js": "/demo-metric/precache-manifest.394433c157adc3402bc03fa418e60e28.js",
     "service-worker.js": "/demo-metric/service-worker.js",
     "static/css/2.76859af9.chunk.css.map": "/demo-metric/static/css/2.76859af9.chunk.css.map",
-    "static/css/main.c10ca51f.chunk.css.map": "/demo-metric/static/css/main.c10ca51f.chunk.css.map",
+    "static/css/main.533dfddf.chunk.css.map": "/demo-metric/static/css/main.533dfddf.chunk.css.map",
     "static/js/2.962b279d.chunk.js.LICENSE": "/demo-metric/static/js/2.962b279d.chunk.js.LICENSE",
     "static/media/catDescriptionAppImage.svg": "/demo-metric/static/media/catDescriptionAppImage.c0fd9d27.svg",
     "static/media/defaultUserAvatar.svg": "/demo-metric/static/media/defaultUserAvatar.cb19c81f.svg",
@@ -24,7 +24,7 @@
     "static/js/runtime-main.7f02804d.js",
     "static/css/2.76859af9.chunk.css",
     "static/js/2.962b279d.chunk.js",
-    "static/css/main.c10ca51f.chunk.css",
+    "static/css/main.533dfddf.chunk.css",
     "static/js/main.748001f7.chunk.js"
   ]
 }
