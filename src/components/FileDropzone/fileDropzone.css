@@ -7,6 +7,13 @@
   border: 2px dashed #d7d7db;
   border-radius: 10px;
   cursor: pointer;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .file-dropzone {
+    padding: 40px 10px;
+  }
 }
 
 .file-dropzone-padding {

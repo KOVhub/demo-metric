@@ -63,6 +63,13 @@ body {
   box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
+
+@media (max-width: 640px) {
+  .main-wrapper {
+    width: 90vw;
+    padding: 20px 10px 0 10px;
+  }
+}
 /* Styles for central container */
 
 
@@ -76,6 +83,7 @@ body {
 @media (max-width: 640px) {
   .column-container {
     width: 100%;
+    padding: 0 10px 20px 10px;
   }
 }
 /* Styles for columns of central container */
