@@ -12,14 +12,14 @@ const App = ({ user }) => {
     return (
       <React.Fragment>
         <AppHeader />
-        <main className='main-wrapper'>
-          <div className='main-container'>
+        <div className='main-container'>
+          <main className='main-wrapper'>
             {user && <MainReportForm/>}
             <section className='column-container'>
               <AppDescription />
             </section>
-          </div>
-        </main>
+          </main>
+        </div>
         <ToastContainer
           transition={Slide}
           position="top-right"

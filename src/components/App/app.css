@@ -4,6 +4,10 @@
 } */
 /* Потом удалить. Для теста верстки */
 
+/* *:focus {
+  outline: 1px dashed #2196F3 !important;
+} */
+
 
 /* Reset default browser styles for forms */
 input:-webkit-autofill,
@@ -16,35 +20,36 @@ input:-internal-autofill-selected {
 /* Reset default browser styles for forms */
 
 
-/* Styles for background container and all tags (fonts) */
-/* *:focus {
-  outline: 1px dashed #2196F3 !important;
-} */
-
+/* Styles for all tags (fonts) */
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
-  box-sizing: border-box;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   font-family: Montserrat, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.2;
   color: #333;
   font-weight: 400;
 }
-/* Styles for background container and all tags (fonts) */
+/* Styles for all tags (fonts) */
+
+
+/* Styles for app background container */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  box-sizing: inherit;
+}
+/* Styles for app background container */
 
 
 /* Styles for central container */
-.main-wrapper {
-  margin: auto 0;
-  box-sizing: inherit;
+.main-container {
+  margin: auto 0; 
 }
 
-.main-container {
+.main-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -52,7 +57,7 @@ body {
   width: 80vw;
   max-width: 1100px;
   box-sizing: inherit;
-  margin: 30px 0;
+  margin: 30px 0; 
   padding: 40px 20px 0 20px;
   background: #fff;
   box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
@@ -66,5 +71,11 @@ body {
   width: 50%;
   box-sizing: inherit;
   padding: 0 20px 40px 20px;
+}
+
+@media (max-width: 640px) {
+  .column-container {
+    width: 100%;
+  }
 }
 /* Styles for columns of central container */
