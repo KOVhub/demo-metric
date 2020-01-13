@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { withUserService } from '../HOC';
 import { compose } from '../../helpers';
 import { userSignIn, userSignUp } from '../../actions';
-import { clientIdYandexOauth, callbackUrlYandexOauth, accountSelectionYandexOauth } from '../../configurationApp';
+import { clientIdYandexOauth, callbackUrlYandexOauth, forceСonfirmPermissionsYandexOauth, accountSelectionYandexOauth } from '../../configurationApp';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './appHeader.css';
@@ -44,15 +44,6 @@ class AppHeader extends Component {
             pauseOnHover: true,
             draggable: true,
           })
-
-          // toast.success("Вы успешно вошли в профиль", {
-          //   position: "top-right",
-          //   autoClose: 4000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          // });
         }
       })
       .catch((error) => {
@@ -107,7 +98,7 @@ class AppHeader extends Component {
       content = (
         <div className='header-user'>
           <a
-            href={`https://oauth.yandex.ru/authorize?response_type=code&client_id=${clientIdYandexOauth}&redirect_uri=${callbackUrlYandexOauth}&force_confirm=${accountSelectionYandexOauth}`}
+            href={`https://passport.yandex.ru/auth/list?retpath=https%3A%2F%2Foauth.yandex.ru%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3D${clientIdYandexOauth}%26redirect_uri%3D${callbackUrlYandexOauth}%26force_confirm%3D${forceСonfirmPermissionsYandexOauth}`}
             className='button-signin-signup'
             title='Войти в профиль'>
             Войти
