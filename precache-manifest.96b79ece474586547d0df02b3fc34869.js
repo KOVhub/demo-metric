@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e656cd415b898168519a273744e11c6e",
+    "revision": "0cdd83dce6c21c78ee9fddc870285d6b",
     "url": "/demo-metric/index.html"
   },
   {
-    "revision": "598b7eac7ecb598a6e39",
+    "revision": "0de31c00f61fb81f5154",
     "url": "/demo-metric/static/css/2.76859af9.chunk.css"
   },
   {
-    "revision": "99b5737734e1dd4e58ff",
-    "url": "/demo-metric/static/css/main.533dfddf.chunk.css"
+    "revision": "08c1a7b7a9c4c6890335",
+    "url": "/demo-metric/static/css/main.82160f18.chunk.css"
   },
   {
-    "revision": "598b7eac7ecb598a6e39",
-    "url": "/demo-metric/static/js/2.962b279d.chunk.js"
+    "revision": "0de31c00f61fb81f5154",
+    "url": "/demo-metric/static/js/2.ceec414e.chunk.js"
   },
   {
     "revision": "86afaa925e0f432774bf95b19b6933fb",
-    "url": "/demo-metric/static/js/2.962b279d.chunk.js.LICENSE"
+    "url": "/demo-metric/static/js/2.ceec414e.chunk.js.LICENSE"
   },
   {
-    "revision": "99b5737734e1dd4e58ff",
-    "url": "/demo-metric/static/js/main.6d49e158.chunk.js"
+    "revision": "08c1a7b7a9c4c6890335",
+    "url": "/demo-metric/static/js/main.2794bbb1.chunk.js"
   },
   {
     "revision": "22e42019b97a357d6f62",

@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/demo-metric/static/css/main.533dfddf.chunk.css",
-    "main.js": "/demo-metric/static/js/main.6d49e158.chunk.js",
-    "main.js.map": "/demo-metric/static/js/main.6d49e158.chunk.js.map",
+    "main.css": "/demo-metric/static/css/main.82160f18.chunk.css",
+    "main.js": "/demo-metric/static/js/main.2794bbb1.chunk.js",
+    "main.js.map": "/demo-metric/static/js/main.2794bbb1.chunk.js.map",
     "runtime-main.js": "/demo-metric/static/js/runtime-main.7f02804d.js",
     "runtime-main.js.map": "/demo-metric/static/js/runtime-main.7f02804d.js.map",
     "static/css/2.76859af9.chunk.css": "/demo-metric/static/css/2.76859af9.chunk.css",
-    "static/js/2.962b279d.chunk.js": "/demo-metric/static/js/2.962b279d.chunk.js",
-    "static/js/2.962b279d.chunk.js.map": "/demo-metric/static/js/2.962b279d.chunk.js.map",
+    "static/js/2.ceec414e.chunk.js": "/demo-metric/static/js/2.ceec414e.chunk.js",
+    "static/js/2.ceec414e.chunk.js.map": "/demo-metric/static/js/2.ceec414e.chunk.js.map",
     "index.html": "/demo-metric/index.html",
-    "precache-manifest.a3a0421fef3ed9fda9ff8076307ac1b9.js": "/demo-metric/precache-manifest.a3a0421fef3ed9fda9ff8076307ac1b9.js",
+    "precache-manifest.96b79ece474586547d0df02b3fc34869.js": "/demo-metric/precache-manifest.96b79ece474586547d0df02b3fc34869.js",
     "service-worker.js": "/demo-metric/service-worker.js",
     "static/css/2.76859af9.chunk.css.map": "/demo-metric/static/css/2.76859af9.chunk.css.map",
-    "static/css/main.533dfddf.chunk.css.map": "/demo-metric/static/css/main.533dfddf.chunk.css.map",
-    "static/js/2.962b279d.chunk.js.LICENSE": "/demo-metric/static/js/2.962b279d.chunk.js.LICENSE",
+    "static/css/main.82160f18.chunk.css.map": "/demo-metric/static/css/main.82160f18.chunk.css.map",
+    "static/js/2.ceec414e.chunk.js.LICENSE": "/demo-metric/static/js/2.ceec414e.chunk.js.LICENSE",
     "static/media/catDescriptionAppImage.svg": "/demo-metric/static/media/catDescriptionAppImage.c0fd9d27.svg",
     "static/media/defaultUserAvatar.svg": "/demo-metric/static/media/defaultUserAvatar.cb19c81f.svg",
     "static/media/fileAddIcon.svg": "/demo-metric/static/media/fileAddIcon.46626092.svg",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.7f02804d.js",
     "static/css/2.76859af9.chunk.css",
-    "static/js/2.962b279d.chunk.js",
-    "static/css/main.533dfddf.chunk.css",
-    "static/js/main.6d49e158.chunk.js"
+    "static/js/2.ceec414e.chunk.js",
+    "static/css/main.82160f18.chunk.css",
+    "static/js/main.2794bbb1.chunk.js"
   ]
 }
