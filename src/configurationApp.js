@@ -11,8 +11,3 @@ export const callbackUrlYandexOauth =
 export const clientIdYandexOauth = 'b5f89edcd2d044a194abaf7d8c320afe';
 
 export const forceСonfirmPermissionsYandexOauth = 'false';
-
-export const accountSelectionYandexOauth =
-  process.env.NODE_ENV === 'production' ? 
-  'true' :
-  'true';

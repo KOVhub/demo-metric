@@ -32,12 +32,9 @@ const userReducer = (state, action) => {
         user: null,
         loading: false,
         hasError: true,
-        error: {
-          errorCode: action.payload.errorCode,
-          errorMessage: action.payload.errorMessage
-        }
+        error: action.payload
       };
-    case 'USER_SIGN_UP':
+    case 'USER_SIGN_OUT':
       return {
         user: null,
         loading: false,

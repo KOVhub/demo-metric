@@ -1,4 +1,4 @@
-import { userSignIn, userSignUp } from './userActions';
+import { userSignInRequested, userSignInLoaded, userSignInError, userSignOut } from './userActions';
 import { handleChangeFiles, handleRemoveFile } from './filesSendedActions';
 import {
   handleChangeCounters,
@@ -8,8 +8,10 @@ import {
   handleChangeDateEnd } from './metricsOptionsActions';
 
 export {
-  userSignIn,
-  userSignUp,
+  userSignInRequested,
+  userSignInLoaded,
+  userSignInError,
+  userSignOut,
   handleChangeFiles,
   handleRemoveFile,
   handleChangeCounters,

@@ -1,17 +1,32 @@
-const userSignIn = (user) => {
+const userSignInRequested = () => {
+  return {
+    type: 'USER_SIGN_IN_REQUEST'
+  };
+};
+
+const userSignInLoaded = (user) => {
   return {
     type: 'USER_SIGN_IN_SUCCESS',
     payload: user
   };
 };
 
-const userSignUp = () => {
+const userSignInError = (error) => {
   return {
-    type: 'USER_SIGN_UP'
+    type: 'USER_SIGN_IN_FAILURE',
+    payload: error
+  };
+};
+
+const userSignOut = () => {
+  return {
+    type: 'USER_SIGN_OUT'
   };
 };
 
 export {
-  userSignIn,
-  userSignUp
+  userSignInRequested,
+  userSignInLoaded,
+  userSignInError,
+  userSignOut
 };

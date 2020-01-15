@@ -28,8 +28,6 @@ const FileItem = ({ file, index, handleRemoveFile }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -39,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
   withFileService(),
-  connect(mapStateToProps, mapDispatchToProps))(FileItem);
+  connect(null, mapDispatchToProps))(FileItem);
